@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'CustomLinkPractice.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'My_first_django',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',  # Or the hostname of your MySQL server
+        'PORT': '3306',           # Leave it empty to use the default MySQL port (3306)
     }
 }
 
