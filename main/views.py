@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import View, TemplateView
+from django.views.generic import View, TemplateView, ListView
+from main import models
 
 # Create your views here.
 def index(request):
-    context = {'msg' : 'John Wick is a man of word'}
+    context = {'msg' : 'John Wick is a man of word.'}
     return render(request, 'main/index.html', context)
 
 
@@ -17,3 +18,9 @@ class GreetView(TemplateView):
         context['name'] = "Rahat Ahmed Chowdhury" 
         context['dept'] = "CSE" 
         return context 
+
+# Using ListView to show model objects without any queries 
+class ShowMusicians(ListView):
+    model = models.Musician 
+    context_object_name = 'musician_list'
+    template_name = 'main/greet.html'

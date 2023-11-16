@@ -9,5 +9,10 @@
 <body class="bg-dark">
     <h1 class="text-white">{{name}} ({{dept}})</h1>
     <h3 class="text-warning">I am greeting you</h3>
+    <ul>
+    {% for musician in musician_list %} 
+        <li class="text-white">{{musician.first_name}} {{musician.last_name}}</li>
+    {% endfor %}
+    <ul>
 </body>
 </html>
