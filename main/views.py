@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import View, TemplateView, ListView
+from django.views.generic import View, TemplateView, ListView, UpdateView
 from main import models
 
 # Create your views here.
@@ -9,7 +9,7 @@ def index(request):
     return render(request, 'main/index.html', context)
 
 
-# Using class-based view 
+# Using  TemplateView to render a template with context  
 class GreetView(TemplateView):
     template_name = 'main/greet.html' 
 
@@ -23,4 +23,10 @@ class GreetView(TemplateView):
 class ShowMusicians(ListView):
     model = models.Musician 
     context_object_name = 'musician_list'
-    template_name = 'main/greet.html'
+    template_name = 'main/musicians.html'
+
+# Using UpdateView to update an object in a model
+class UpdateMusician(UpdateView):
+    model = models.Musician 
+    fields = ('instrument')
+    template_name = "musician_update.html"
